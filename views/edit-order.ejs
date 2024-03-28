@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Order</title>
+</head>
+<body>
+  <h1>Edit Order</h1>
+  <form action="/update-order" method="post">
+    <input type="hidden" name="id" value="<%= order.id %>">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<%= order.name %>" required>
+    <label for="owner">Owner:</label>
+    <input type="text" id="owner" name="owner" value="<%= order.owner %>" required>
+    <label for="state">State:</label>
+    <select id="state" name="state">
+      <option value="Pending" <% if(order.state === 'Pending') { %>selected<% } %>>Pending</option>
+      <option value="Completed" <% if(order.state === 'Completed') { %>selected<% } %>>Completed</option>
+    </select>
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" value="<%= order.time %>">
+    <button type="submit">Update Order</button>
+  </form>
+</body>
+</html>

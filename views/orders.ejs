@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Page</title>
+</head>
+<body>
+  <h1>Orders List</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Owner</th>
+      <th>State</th>
+      <th>Time</th>
+      <th>Actions</th>
+    </tr>
+    <% orders.forEach(function(order) { %>
+    <tr>
+      <td><%= order.name %></td>
+      <td><%= order.owner %></td>
+      <td><%= order.state %></td>
+      <td><%= order.time %></td>
+      <td>
+        <form action="/edit-order/<%= order.id %>" method="get">
+            <button type="submit">Edit</button>
+          </form>
+      </td>
+    </tr>
+    <% }); %>
+  </table>
+  <!-- ... rest of your HTML above ... -->
+<h2>Create New Order</h2>
+<form action="/create-order" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="owner">Owner:</label>
+  <input type="text" id="owner" name="owner" required>
+  
+  <label for="state">State:</label>
+  <input type="text" id="state" name="state" required>
+  
+  <label for="time">Time:</label>
+  <input type="text" id="time" name="time" required>
+  
+  <button type="submit">Add Order</button>
+</form>
+<!-- ... rest of your HTML below ... -->
+
+</body>
+</html>
